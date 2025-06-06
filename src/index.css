@@ -4,7 +4,7 @@
 :root{
     --dark_back: rgb(11,19,30);
     --dark_boxes:rgb(32, 43, 59);
-    --dark_text: rgb(142, 148, 156);
+    --dark_text: rgb(195,195,195);
     --dark_accent: rgb(54, 65, 79);
  
     background-color: var(--dark_back);

@@ -18,11 +18,11 @@ function CurrentWeather() {
   return (
     <div className='pl-3 pt-2 bg-(--dark_boxes) size-[310px] ml-5 mr-3 my-3 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Current Weather</div>
-      <div className='text-[16px] text-gray-500'>{weatherData.lastUpdated}</div>
+      <div className='text-[16px]'>{weatherData.lastUpdated}</div>
       <div className='flex mt-1 p-2'>
         <div>
-          <div className='text-[44px] font-bold'>{weatherData.temperature}</div>
-          <div className='text-[24px] text-gray-500'>{weatherData.condition}</div>
+          <div className='text-[44px] text-white font-bold'>{weatherData.temperature}</div>
+          <div className='text-[24px]'>{weatherData.condition}</div>
         </div>
         
         <img src={sprite} alt="Weather Icon" className='w-[100px] h-[100px] mx-auto' />

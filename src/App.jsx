@@ -3,6 +3,7 @@ import Header from "./components/header"
 import HourlyForecast from "./components/HourlyForecast"
 import WeekForecast from "./components/WeekForecast"
 import Map from "./components/Map"
+import RiseNSet from "./components/RiseNSet"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <div className="section-1">
         <CurrentWeather/>
         <Map/>
+        <RiseNSet/>
       </div>
 
       <div className="section-2">

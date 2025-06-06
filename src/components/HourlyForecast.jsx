@@ -15,8 +15,8 @@ function HourlyForecast() {
         <HourlyForecastItem time="13:00" temperature="26" icon={sunny} offset={[(maxTemp-28)*range, (maxTemp-26)*range, (maxTemp-29)*range]}/>
         <HourlyForecastItem time="14:00" temperature="29" icon={sunny} offset={[(maxTemp-26)*range, (maxTemp-29)*range, (maxTemp-27)*range]}/>
         <HourlyForecastItem time="15:00" temperature="27" icon={sunny} offset={[(maxTemp-29)*range, (maxTemp-27)*range, (maxTemp-30)*range]}/>
-        <HourlyForecastItem time="16:00" temperature="30" icon={sunny} offset={[(maxTemp-27)*range, (maxTemp-30)*range, (maxTemp-26)*range]}/>
-        <HourlyForecastItem time="15:00" temperature="27" icon={sunny} offset={[(maxTemp-29)*range, (maxTemp-27)*range, (maxTemp-30)*range]}/>
+        <HourlyForecastItem time="16:00" temperature="30" icon={sunny} offset={[(maxTemp-27)*range, (maxTemp-30)*range, (maxTemp-27)*range]}/>
+        <HourlyForecastItem time="15:00" temperature="27" icon={sunny} offset={[(maxTemp-30)*range, (maxTemp-27)*range, (maxTemp-30)*range]}/>
         <HourlyForecastItem time="16:00" temperature="30" icon={sunny} offset={[(maxTemp-27)*range, (maxTemp-30)*range, (maxTemp-26)*range]}/>
         <HourlyForecastItem time="17:00" temperature="26" icon={sunny} offset={[(maxTemp-30)*range, (maxTemp-26)*range, 170]}/>
       </div>
@@ -29,9 +29,9 @@ function HourlyForecastItem({ time, temperature, icon, offset }) {
   return (
     <div className='flex flex-col items-center w-[110px]'>
       <svg className='w-[110px] h-[200px]'>
-        <path d={`M 55 ${30+offset[1]} L -55 ${30+offset[0]}`} stroke="var(--dark_accent)" strokeWidth="2" fill="black" />
-        <path d={`M 55 ${30+offset[1]} L 170 ${30+offset[2]}`} stroke="var(--dark_accent)" strokeWidth="2" fill="black" />
-        <circle cx="50%" cy={30+offset[1]} r="5" stroke="var(--dark_accent)" strokeWidth="2" fill="black" />
+        <path d={`M 58 ${30+offset[1]} L -55 ${30+offset[0]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
+        <path d={`M 53 ${30+offset[1]} L 170 ${30+offset[2]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
+        <circle cx="50%" cy={30+offset[1]} r="5" stroke="white" strokeWidth="2" fill="black" />
       </svg>
       <div className='text-[16px]'>{time}</div>
       <img src={icon} alt="Weather Icon" className='size-[40px]' />
