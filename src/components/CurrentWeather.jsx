@@ -1,19 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import sprite from '../assets/production/fill/all/clear-day.svg'
 
 import Humidity from '../assets/production/line/all/humidity.svg'
 import Wind from '../assets/production/line/all/wind.svg'
 import UVIndex from '../assets/production/line/all/uv-index.svg'
 
-function CurrentWeather() {
-  const weatherData = {
+function CurrentWeather({currentData}) {
+
+  const [weatherData, setWeatherData] = useState({
     temperature: '25°C',
     condition: 'Sunny',
     lastUpdated: '10:00 AM',
     windSpeed: '15 km/h',
     humidity: '60%',
     uvIndex: '5',
-  }
+  })
+
+  useEffect(()=>{
+
+    if (!currentData) return;
+    
+    let data = {
+      temperature: currentData[0].temperature_2m+currentData[1].temperature_2m,
+      apparant_temperature:currentData[0].apparent_temperature+currentData[1].apparent_temperature,
+      condition: 'Sunny',
+      lastUpdated: currentData[0].time.split("T")[1],
+      windSpeed: currentData[0].wind_speed_10m,
+      humidity: currentData[0].relative_humidity_2m,
+      uvIndex: currentData[0].uv_index,
+      isDay:currentData[0].is_day,
+    }
+
+    setWeatherData(data);
+}, [currentData])
+
 
   return (
     <div className='pl-3 pt-2 bg-(--dark_boxes) size-[310px] ml-5 mr-3 my-3 rounded-[25px]'>
@@ -44,6 +64,11 @@ function CurrentWeather() {
           <div className='text-[18px]'>{weatherData.windSpeed}</div>
         </div>
       </div>
+
+      <p className='mt-4 mx-2 text-lg'>
+        Feels Like: &nbsp; 
+        <span className='text-white'>{weatherData.apparant_temperature}</span>
+      </p>
     </div>
   )
 }

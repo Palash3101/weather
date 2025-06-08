@@ -2,15 +2,19 @@ import { useState, useEffect } from 'react'
 import sunriseIcon from '../assets/production/fill/all/sunrise.svg'
 import sunsetIcon from '../assets/production/fill/all/sunset.svg'
 
-function RiseNSet() {
+function RiseNSet({RiseNSetTime, isDay}) {
   const [currentTime, setCurrentTime] = useState(new Date())
-  
-  // Mock data - in real app, this would come from weather API
-  const sunriseTime = new Date()
-  sunriseTime.setHours(6, 24, 0)
-  
-  const sunsetTime = new Date()
-  sunsetTime.setHours(19, 42, 0)
+
+  const [sunupTime, setSunupTime] = useState(null)
+  const [sundownTime , setSundownTime] = useState(null)
+
+  useEffect(()=>{
+      if (!RiseNSetTime) return;
+    
+      setSunupTime(RiseNSetTime.sunrise[0].split("T")[1]);
+      setSundownTime(RiseNSetTime.sunset[0].split("T")[1]);
+
+  }, [RiseNSetTime])
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -19,36 +23,13 @@ function RiseNSet() {
     
     return () => clearInterval(timer)
   }, [])
-  
-  const formatTime = (date) => {
-    return date.toLocaleTimeString([], { 
-      hour: '2-digit', 
-      minute: '2-digit',
-      hour12: true 
-    })
-  }
-  
-  const getTimeUntil = (targetTime) => {
-    const now = new Date()
-    const target = new Date(targetTime)
-    
-    // If target time has passed today, set it for tomorrow
-    if (target < now) {
-      target.setDate(target.getDate() + 1)
+
+  useEffect(()=>{
+    if (sunupTime){
+      getSunPosition();
     }
+  }, [sunupTime, sundownTime])
     
-    const diff = target - now
-    const hours = Math.floor(diff / (1000 * 60 * 60))
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-    
-    if (hours > 0) {
-      return `in ${hours}h ${minutes}m`
-    } else {
-      return `in ${minutes}m`
-    }
-  }
-  
-  const isDay = true;
 
   function getSunArcPath(position) {
     const rx = 145;
@@ -70,11 +51,22 @@ function RiseNSet() {
   }
 
   function getSunPosition(){
-    const rise_min = sunriseTime.getHours()*60 + sunriseTime.getMinutes();
+
+    if (!isDay){
+      return [40, 90]
+    }
+
+    let rise_min = sunupTime.split(":")
+    rise_min = parseInt(rise_min[0])*60 + parseInt(rise_min[1]);
+    
+    let set_min = sundownTime.split(":")
+    set_min = parseInt(set_min[0])*60 + parseInt(set_min[1])
+
+    // const set_min = sunsetTime.getHours()*60 + sunsetTime.getMinutes();
     const cur_min = currentTime.getHours()*60 + currentTime.getMinutes();
-    const set_min = sunsetTime.getHours()*60 + sunsetTime.getMinutes();
 
     return getSunArcPath((cur_min-rise_min)/(set_min-rise_min))
+    
   }
   
   const [sunX, sunY] = getSunPosition();
@@ -83,7 +75,6 @@ function RiseNSet() {
     <div className='px-3 pt-2 bg-(--dark_boxes) w-[400px] h-[310px] mx-3 my-3 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Sunrise&Sunset</div>
         
-        {/* Sun Arc Visualization */}
         <div className='h-26 w-full my-4'>
           <svg
             className='svg-container'
@@ -103,33 +94,25 @@ function RiseNSet() {
           </svg>
         </div>
         
-        {/* Time Information */}
         <div className='grid grid-cols-2 gap-4'>
-          {/* Sunrise */}
           <div className=' rounded-2xl p-3'>
             <div className='flex items-center mb-1'>
               <img src={sunriseIcon} alt="Sunrise Icon" className='size-10' />
               <span className='text-base font-medium'>Sunrise</span>
             </div>
-            <div className='text-2xl font-bold text-white mb-1'>
-              {formatTime(sunriseTime)}
-            </div>
-            <div className='text-s'>
-              {currentTime < sunriseTime ? getTimeUntil(sunriseTime) : 'Passed'}
+            <div className='text-2xl font-bold text-white pl-3'>
+              {sunupTime}
             </div>
           </div>
           
-          {/* Sunset */}
+
           <div className=' rounded-2xl p-3'>
             <div className='flex items-center mb-1'>
               <img src={sunsetIcon} alt="Sunset Icon" className='size-10' />
               <span className='text-base font-medium'>Sunset</span>
             </div>
-            <div className='text-2xl font-bold text-white mb-1'>
-              {formatTime(sunsetTime)}
-            </div>
-            <div className='text-s'>
-              {currentTime < sunsetTime ? getTimeUntil(sunsetTime) : 'Passed'}
+            <div className='text-2xl font-bold text-white pl-3'>
+              {sundownTime}
             </div>
           </div>
         </div>
