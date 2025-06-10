@@ -1,0 +1,282 @@
+{
+	"0":{
+		"day":{
+			"description":"Sunny",
+			"svg":"production/fill/all/clear-day.svg"
+		},
+		"night":{
+			"description":"Clear",
+			"svg":"production/fill/all/clear-night.svg"
+		}
+	},
+	"1":{
+		"day":{
+			"description":"Mainly Sunny",
+			"svg":"production/fill/all/clear-day.svg"
+		},
+		"night":{
+			"description":"Mainly Clear",
+			"svg":"production/fill/all/clear-night.svg"
+		}
+	},
+	"2":{
+		"day":{
+			"description":"Partly Cloudy",
+			"svg":"production/fill/all/partly-cloudy-day.svg"
+		},
+		"night":{
+			"description":"Partly Cloudy",
+			"svg":"production/fill/all/partly-cloudy-night.svg"
+		}
+	},
+	"3":{
+		"day":{
+			"description":"Cloudy",
+			"svg":"production/fill/all/cloudy.svg"
+		},
+		"night":{
+			"description":"Cloudy",
+			"svg":"production/fill/all/cloudy.svg"
+		}
+	},
+	"45":{
+		"day":{
+			"description":"Foggy",
+			"svg":"production/fill/all/fog-day.svg"
+		},
+		"night":{
+			"description":"Foggy",
+			"svg":"production/fill/all/fog-night.svg"
+		}
+	},
+	"48":{
+		"day":{
+			"description":"Rime Fog",
+			"svg":"production/fill/all/fog.svg"
+		},
+		"night":{
+			"description":"Rime Fog",
+			"svg":"production/fill/all/fog.svg"
+		}
+	},
+	"51":{
+		"day":{
+			"description":"Light Drizzle",
+			"svg":"production/fill/all/partly-cloudy-day-drizzle.svg"
+		},
+		"night":{
+			"description":"Light Drizzle",
+			"svg":"production/fill/all/partly-cloudy-night-drizzle.svg"
+		}
+	},
+	"53":{
+		"day":{
+			"description":"Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		},
+		"night":{
+			"description":"Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		}
+	},
+	"55":{
+		"day":{
+			"description":"Heavy Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		},
+		"night":{
+			"description":"Heavy Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		}
+	},
+	"56":{
+		"day":{
+			"description":"Light Freezing Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		},
+		"night":{
+			"description":"Light Freezing Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		}
+	},
+	"57":{
+		"day":{
+			"description":"Freezing Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		},
+		"night":{
+			"description":"Freezing Drizzle",
+			"svg":"production/fill/all/drizzle.svg"
+		}
+	},
+	"61":{
+		"day":{
+			"description":"Light Rain",
+			"svg":"production/fill/all/partly-cloudy-day-rain.svg"
+		},
+		"night":{
+			"description":"Light Rain",
+			"svg":"production/fill/all/partly-cloudy-night-rain.svg"
+		}
+	},
+	"63":{
+		"day":{
+			"description":"Rain",
+			"svg":"production/fill/all/rain.svg"
+		},
+		"night":{
+			"description":"Rain",
+			"svg":"production/fill/all/rain.svg"
+		}
+	},
+	"65":{
+		"day":{
+			"description":"Heavy Rain",
+			"svg":"production/fill/all/rain.svg"
+		},
+		"night":{
+			"description":"Heavy Rain",
+			"svg":"production/fill/all/rain.svg"
+		}
+	},
+	"66":{
+		"day":{
+			"description":"Light Freezing Rain",
+			"svg":"production/fill/all/sleet.svg"
+		},
+		"night":{
+			"description":"Light Freezing Rain",
+			"svg":"production/fill/all/sleet.svg"
+		}
+	},
+	"67":{
+		"day":{
+			"description":"Freezing Rain",
+			"svg":"production/fill/all/sleet.svg"
+		},
+		"night":{
+			"description":"Freezing Rain",
+			"svg":"production/fill/all/sleet.svg"
+		}
+	},
+	"71":{
+		"day":{
+			"description":"Light Snow",
+			"svg":"production/fill/all/partly-cloudy-day-snow.svg"
+		},
+		"night":{
+			"description":"Light Snow",
+			"svg":"production/fill/all/partly-cloudy-night-snow.svg"
+		}
+	},
+	"73":{
+		"day":{
+			"description":"Snow",
+			"svg":"production/fill/all/snow.svg"
+		},
+		"night":{
+			"description":"Snow",
+			"svg":"production/fill/all/snow.svg"
+		}
+	},
+	"75":{
+		"day":{
+			"description":"Heavy Snow",
+			"svg":"production/fill/all/snow.svg"
+		},
+		"night":{
+			"description":"Heavy Snow",
+			"svg":"production/fill/all/snow.svg"
+		}
+	},
+	"77":{
+		"day":{
+			"description":"Snow Grains",
+			"svg":"production/fill/all/snow.svg"
+		},
+		"night":{
+			"description":"Snow Grains",
+			"svg":"production/fill/all/snow.svg"
+		}
+	},
+	"80":{
+		"day":{
+			"description":"Light Showers",
+			"svg":"production/fill/all/rain.svg"
+		},
+		"night":{
+			"description":"Light Showers",
+			"svg":"production/fill/all/rain.svg"
+		}
+	},
+	"81":{
+		"day":{
+			"description":"Showers",
+			"svg":"production/fill/all/rain.svg"
+		},
+		"night":{
+			"description":"Showers",
+			"svg":"production/fill/all/rain.svg"
+		}
+	},
+	"82":{
+		"day":{
+			"description":"Heavy Showers",
+			"svg":"production/fill/all/rain.svg"
+		},
+		"night":{
+			"description":"Heavy Showers",
+			"svg":"production/fill/all/rain.svg"
+		}
+	},
+	"85":{
+		"day":{
+			"description":"Light Snow Showers",
+			"svg":"production/fill/all/snow.svg"
+		},
+		"night":{
+			"description":"Light Snow Showers",
+			"svg":"production/fill/all/snow.svg"
+		}
+	},
+	"86":{
+		"day":{
+			"description":"Snow Showers",
+			"svg":"production/fill/all/snow.svg"
+		},
+		"night":{
+			"description":"Snow Showers",
+			"svg":"production/fill/all/snow.svg"
+		}
+	},
+	"95":{
+		"day":{
+			"description":"Thunderstorm",
+			"svg":"production/fill/all/thunderstorms-day.svg"
+		},
+		"night":{
+			"description":"Thunderstorm",
+			"svg":"production/fill/all/thunderstorms-night.svg"
+		}
+	},
+	"96":{
+		"day":{
+			"description":"Light Thunderstorms With Hail",
+			"svg":"production/fill/all/thunderstorms-day-snow.svg"
+		},
+		"night":{
+			"description":"Light Thunderstorms With Hail",
+			"svg":"production/fill/all/thunderstorms-night-snow.svg"
+		}
+	},
+	"99":{
+		"day":{
+			"description":"Thunderstorm With Hail",
+			"svg":"production/fill/all/thunderstorms-day-snow.svg"
+		},
+		"night":{
+			"description":"Thunderstorm With Hail",
+			"svg":"production/fill/all/thunderstorms-night-snow.svg"
+		}
+	}
+}

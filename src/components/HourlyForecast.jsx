@@ -1,10 +1,11 @@
 import { useState,useEffect } from 'react';
-import sunny from '../assets/production/fill/all/clear-day.svg'
-import Humidity from '../assets/production/fill/all/humidity.svg'
 import './ScrollBar.css';
+import weatherSprites from '../../utilities/CodeConverterMap.json'
 
 
-function HourlyForecast({hourlyData}) {
+function HourlyForecast({hourlyData, RiseNSetTime}) {
+  const sunny = '../../production/fill/all/clear-day.svg'
+
   const [minTemp, setMinTemp] = useState(null);
   const [maxTemp, setMaxTemp] = useState(null);
   const [range, setRange] = useState(110/(31-25));
@@ -21,8 +22,21 @@ function HourlyForecast({hourlyData}) {
     if (maxTemp === null || minTemp === null) return;
 
     setRange(110/(maxTemp - minTemp));
-    console.log(minTemp)
   },[maxTemp, minTemp])
+
+  function getIcon(weather_code, time){
+    const cur_time = time.split("T")[1]
+    const sunup_time = RiseNSetTime.sunrise[0].split("T")[1]
+    const sundown_time = RiseNSetTime.sunset[0].split("T")[1]
+
+    if (cur_time>=sunup_time && cur_time<sundown_time){
+      return weatherSprites[weather_code]['day'].svg
+    }
+    else{
+      return weatherSprites[weather_code]['night'].svg
+    }
+
+  }
 
 
   return (
@@ -31,14 +45,14 @@ function HourlyForecast({hourlyData}) {
       <div className='flex gap-1 px-3 overflow-x-auto w-full new-scrollbar'>
 
         {
-          hourlyData ?          
+          hourlyData && RiseNSetTime ?          
           Array(24).fill().map((_, i) => {
             return(
               <HourlyForecastItem
                 key={i}
                 time={hourlyData[0].time[i].split("T")[1].slice(0,5)}
                 temperature={hourlyData[0].temperature_2m[i]}  
-                icon={sunny}
+                icon={getIcon(hourlyData[0].weather_code[i], hourlyData[0].time[i])}
                 humidity={hourlyData[0].precipitation_probability[i]}
                 offset={[
                   
@@ -61,13 +75,14 @@ function HourlyForecast({hourlyData}) {
 
 
 function HourlyForecastItem({ time, temperature, icon, offset, humidity }) {  
+  const Humidity = '../../production/fill/all/humidity.svg'
   
   return (
     <div className='flex flex-col items-center w-[110px]'>
       <svg className='w-[140px] h-[140px]'>
-        <path d={`M 70 ${30+offset[1]} L -35 ${30+offset[0]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
-        <path d={`M 70 ${30+offset[1]} L 185 ${30+offset[2]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
-        <circle cx="50%" cy={30+offset[1]} r="5" stroke="white" strokeWidth="2" fill="black" />
+        <path d={`M 70 ${25+offset[1]} L -35 ${25+offset[0]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
+        <path d={`M 70 ${25+offset[1]} L 185 ${25+offset[2]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
+        <circle cx="50%" cy={25+offset[1]} r="5" stroke="white" strokeWidth="2" fill="black" />
       </svg>
       <div className='text-[18px]'>{time}</div>
       <div className='flex items-center'>

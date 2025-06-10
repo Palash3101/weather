@@ -4,3 +4,7 @@ https://api.open-meteo.com/v1/forecast?latitude=20.3717&longitude=72.9049&hourly
 
 forecast Data
 https://api.open-meteo.com/v1/forecast?latitude=20.3717&longitude=72.9049&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto
+
+
+GeoEncoding
+https://api.locationiq.com/v1/autocomplete?key=Your_API_Access_Token&q=tower%20of%20lo%20&limit=5&dedupe=1&

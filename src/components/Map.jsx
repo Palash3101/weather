@@ -3,7 +3,6 @@ import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 
 function Map({loc_cords}) {
-  
 
   return (
     <div className='px-3 pt-2 bg-(--dark_boxes) flex-1 min-w-0 h-[260px] mx-3 my-3 rounded-[25px]'>
@@ -16,23 +15,22 @@ function Map({loc_cords}) {
 function MapComponent({loc_cords}) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const city = loc_cords;
-  const zoom = 12;
+  const zoom = 13;
 	
   maptilersdk.config.apiKey = '9AZQO2TOLFXfBUJHbugO';
 
   useEffect(() => {
-  if (map.current) return; // stops map from intializing more than once
 
   map.current = new maptilersdk.Map({
     container: mapContainer.current,
     style: maptilersdk.MapStyle.STREETS,
-    center: [city[1], city[0]],
+    center: [loc_cords[1], loc_cords[0]],
     zoom: zoom
   });
 
-  
-}, [city[0], city[1], zoom]);
+
+  }, [loc_cords, zoom]);
+
 
   return (
   <div className="relative w-full h-[85%] rounded-[20px] overflow-hidden mt-2">

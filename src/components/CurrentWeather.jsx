@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import sprite from '../assets/production/fill/all/clear-day.svg'
 
-import Humidity from '../assets/production/line/all/humidity.svg'
-import Wind from '../assets/production/line/all/wind.svg'
-import UVIndex from '../assets/production/line/all/uv-index.svg'
 
 function CurrentWeather({currentData}) {
+
+  const Humidity = '/production/line/all/humidity.svg'
+  const Wind = '/production/line/all/wind.svg'
+  const UVIndex = '/production/line/all/uv-index.svg'
 
   const [weatherData, setWeatherData] = useState({
     temperature: '25°C',
@@ -14,23 +14,24 @@ function CurrentWeather({currentData}) {
     windSpeed: '15 km/h',
     humidity: '60%',
     uvIndex: '5',
+    icon:'/production/fill/all/clear-day.svg'
   })
 
   useEffect(()=>{
 
     if (!currentData) return;
-    
     let data = {
       temperature: currentData[0].temperature_2m+currentData[1].temperature_2m,
       apparant_temperature:currentData[0].apparent_temperature+currentData[1].apparent_temperature,
-      condition: 'Sunny',
+      condition: currentData[0].weather_code.description,
+      icon:currentData[0].weather_code.svg,
       lastUpdated: currentData[0].time.split("T")[1],
       windSpeed: currentData[0].wind_speed_10m,
       humidity: currentData[0].relative_humidity_2m,
       uvIndex: currentData[0].uv_index,
       isDay:currentData[0].is_day,
     }
-
+    
     setWeatherData(data);
 }, [currentData])
 
@@ -45,7 +46,7 @@ function CurrentWeather({currentData}) {
           <div className='text-[24px]'>{weatherData.condition}</div>
         </div>
         
-        <img src={sprite} alt="Weather Icon" className='w-[100px] h-[100px] mx-auto' />
+        <img src={weatherData.icon} alt="Weather Icon" className='w-[100px] h-[100px] mx-auto' />
       </div>
       <div className='flex justify-between mr-10 ml-5 mt-3'>
 

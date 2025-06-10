@@ -1,8 +1,8 @@
-import sunny from '../assets/production/fill/all/clear-day.svg'
+import weatherSprites from '../../utilities/CodeConverterMap.json'
 import './ScrollBar.css';
-import raindrop from '../assets/production/fill/all/raindrop.svg'
 
 function WeekForecast({dailyData}) {
+  const sunny = '../../production/fill/all/clear-day.svg'
 
   function getDayName(dateString) {
     const date = new Date(dateString);
@@ -27,7 +27,7 @@ function WeekForecast({dailyData}) {
                 Humidity={dailyData[0].precipitation_probability_max[index] + dailyData[1].precipitation_probability_max}
                 MinTemp={dailyData[0].temperature_2m_min[index] + dailyData[1].temperature_2m_min}
                 MaxTemp={dailyData[0].temperature_2m_max[index] + dailyData[1].temperature_2m_max}
-                sprite={sunny}
+                sprite={weatherSprites[dailyData[0].weather_code[index]]['day'].svg}
               />
             )})
           :
@@ -40,6 +40,8 @@ function WeekForecast({dailyData}) {
 }
 
 function DayForecast({Day,Humidity, MinTemp, MaxTemp, sprite}) {
+  const raindrop = '../../production/fill/all/raindrop.svg'
+
   return (
     <div className='grid grid-cols-[100px_40px_45px_1fr_1fr]  text-[19px] mt-5 gap-2 items-center'>
       <div className=' text-[21px]'>{Day}</div>

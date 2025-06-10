@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import sunriseIcon from '../assets/production/fill/all/sunrise.svg'
-import sunsetIcon from '../assets/production/fill/all/sunset.svg'
+
 
 function RiseNSet({RiseNSetTime, isDay}) {
+  const sunriseIcon= '../../production/fill/all/sunrise.svg'
+  const sunsetIcon ='../../production/fill/all/sunset.svg'
+
   const [currentTime, setCurrentTime] = useState(new Date())
 
   const [sunupTime, setSunupTime] = useState(null)

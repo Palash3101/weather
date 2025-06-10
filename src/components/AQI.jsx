@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-function AQI({variant, aqData}) {
+function AQI({variant, aqData, location}) {
   const [airQuality, setAirQuality] = useState(0);
   const [windGusts, setWindGusts] = useState(24);
   const [pressure, setPressure] = useState(1012);
@@ -26,7 +26,7 @@ function AQI({variant, aqData}) {
   useEffect(() => {
     async function fetchAirQuality() {
       try{
-        const response = await fetch('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.52&longitude=13.41&current=pm2_5');
+        const response = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${location[0]}&longitude=${location[1]}&current=pm2_5`);
   
         if (response.ok) {
           const data = response.json().then((data) => {
