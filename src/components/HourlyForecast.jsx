@@ -7,7 +7,7 @@ import './ScrollBar.css';
 function HourlyForecast({hourlyData}) {
   const [minTemp, setMinTemp] = useState(null);
   const [maxTemp, setMaxTemp] = useState(null);
-  const [range, setRange] = useState(140/(31-25));
+  const [range, setRange] = useState(110/(31-25));
 
   useEffect(() => {
     if (!hourlyData) return;
@@ -20,12 +20,13 @@ function HourlyForecast({hourlyData}) {
   useEffect(() => {
     if (maxTemp === null || minTemp === null) return;
 
-    setRange(140/(maxTemp - minTemp));
+    setRange(110/(maxTemp - minTemp));
+    console.log(minTemp)
   },[maxTemp, minTemp])
 
 
   return (
-    <div className='px-3 pt-2 bg-(--dark_boxes) w-[1020px] h-[350px] mx-3 my-2 rounded-[25px]'>
+    <div className='px-3 pt-2 bg-(--dark_boxes) flex-1 min-w-0 h-inherit mx-3 my-2 rounded-[25px]'>
       <div className='text-[20px] font-bold px-2'>Hourly Forecast</div>
       <div className='flex gap-1 px-3 overflow-x-auto w-full new-scrollbar'>
 
@@ -63,8 +64,8 @@ function HourlyForecastItem({ time, temperature, icon, offset, humidity }) {
   
   return (
     <div className='flex flex-col items-center w-[110px]'>
-      <svg className='w-[140px] h-[200px]'>
-        <path d={`M 70 ${30+offset[1]} L -45 ${30+offset[0]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
+      <svg className='w-[140px] h-[140px]'>
+        <path d={`M 70 ${30+offset[1]} L -35 ${30+offset[0]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
         <path d={`M 70 ${30+offset[1]} L 185 ${30+offset[2]}`} stroke="rgb(195,195,195)" strokeWidth="2" fill="black" />
         <circle cx="50%" cy={30+offset[1]} r="5" stroke="white" strokeWidth="2" fill="black" />
       </svg>

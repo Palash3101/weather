@@ -36,7 +36,7 @@ function CurrentWeather({currentData}) {
 
 
   return (
-    <div className='pl-3 pt-2 bg-(--dark_boxes) size-[310px] ml-5 mr-3 my-3 rounded-[25px]'>
+    <div className='pl-3 pt-2 bg-(--dark_boxes) h-[310px] min-w-0 flex-1 ml-5 mr-3 my-3 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Current Weather</div>
       <div className='text-[16px]'>{weatherData.lastUpdated}</div>
       <div className='flex mt-1 p-2'>

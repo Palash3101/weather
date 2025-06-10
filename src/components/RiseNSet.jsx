@@ -56,6 +56,8 @@ function RiseNSet({RiseNSetTime, isDay}) {
       return [40, 90]
     }
 
+
+    try{
     let rise_min = sunupTime.split(":")
     rise_min = parseInt(rise_min[0])*60 + parseInt(rise_min[1]);
     
@@ -66,13 +68,18 @@ function RiseNSet({RiseNSetTime, isDay}) {
     const cur_min = currentTime.getHours()*60 + currentTime.getMinutes();
 
     return getSunArcPath((cur_min-rise_min)/(set_min-rise_min))
+  }
+
+  catch {
+    return [40,90]
+  }
     
   }
   
   const [sunX, sunY] = getSunPosition();
   
   return (
-    <div className='px-3 pt-2 bg-(--dark_boxes) w-[400px] h-[310px] mx-3 my-3 rounded-[25px]'>
+    <div className='px-3 pt-2 bg-(--dark_boxes) min-w-[330px] flex-1 mx-3 my-3 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Sunrise&Sunset</div>
         
         <div className='h-26 w-full my-4'>
