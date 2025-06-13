@@ -57,11 +57,11 @@ function AQI({variant, aqData, location}) {
     <>
     { 
       variant == 1 ?
-    <div className='pl-3 pt-1 bg-(--dark_boxes) h-[115px] min-w-0 mx-3 my-3 rounded-[25px]'>
+    <div className='pl-3 pt-1 bg-(--dark_boxes) h-[110px] min-w-0 mx-3 my-2 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Air Quality & Forecast</div>
       
       {/* Air Quality with Meter */}
-      <div className='flex items-center space-x-4 mt-2 pr-3'>
+      <div className='flex items-center space-x-4 mt-1 pr-3'>
         <div className='flex items-center space-x-2'>
         <div className={`${getBackgroundColor(airQuality)} text-black font-bold text-[22px] px-3 py-1 rounded-lg`}>
           {airQuality}

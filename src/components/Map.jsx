@@ -5,7 +5,7 @@ import "@maptiler/sdk/dist/maptiler-sdk.css";
 function Map({loc_cords, setCoords}) {
 
   return (
-    <div className='px-3 pt-2 bg-(--dark_boxes) flex-1 min-w-0 h-[260px] mx-3 my-3 rounded-[25px]'>
+    <div className='px-3 pt-2 bg-(--dark_boxes) flex-1 min-w-0 h-[275px] mx-3 my-3 rounded-[25px]'>
       <div className='text-[20px] font-bold'>Map</div>
       <MapComponent loc_cords={loc_cords} setCoords={setCoords}/>
     </div>
