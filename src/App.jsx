@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import CurrentWeather from "./components/CurrentWeather"
-import Header from "./components/header"
+import Header from "./components/Header"
 import HourlyForecast from "./components/HourlyForecast"
 import WeekForecast from "./components/WeekForecast"
 import Map from "./components/Map"

@@ -17,7 +17,7 @@ function MapComponent({loc_cords, setCoords}) {
   const map = useRef(null);
   const zoom = 13;
 	
-  maptilersdk.config.apiKey = '9AZQO2TOLFXfBUJHbugO';
+  maptilersdk.config.apiKey = import.meta.env.VITE_MAPTILER_API_KEY;
 
   useEffect(() => {
 
