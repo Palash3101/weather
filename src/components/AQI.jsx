@@ -2,8 +2,8 @@ import {useState, useEffect} from 'react'
 
 function AQI({variant, aqData, location}) {
   const [airQuality, setAirQuality] = useState(0);
-  const [windGusts, setWindGusts] = useState(24);
-  const [pressure, setPressure] = useState(1012);
+  const [windGusts, setWindGusts] = useState(0);
+  const [pressure, setPressure] = useState(0);
   
   // Calculate meter position (0-150 scale, where 0-50 is good, 51-100 is moderate, 101-150 is unhealthy)
   function getMeterPosition(airQuality) {
@@ -11,16 +11,22 @@ function AQI({variant, aqData, location}) {
     return Math.min((airQuality / 150) * 100, 100);
   }
   
-  const getQualityText = (aq) => {
+  const getText = (aq) => {
     if (aq <= 50) return 'Good';
     if (aq <= 100) return 'Moderate';
     return 'Unhealthy';
   };
   
-  const getQualityColor = (aq) => {
-    if (aq <= 50) return 'green-400';
-    if (aq <= 100) return 'yellow-400';
-    return 'red-400';
+  const getTextColor = (aq) => {
+    if (aq <= 50) return 'text-green-400';
+    if (aq <= 100) return 'text-yellow-400';
+    return 'text-red-400';
+  };
+
+    const getBackgroundColor = (aq) => {
+    if (aq <= 50) return 'bg-green-400';
+    if (aq <= 100) return 'bg-yellow-400';
+    return 'bg-red-400';
   };
 
   useEffect(() => {
@@ -57,11 +63,11 @@ function AQI({variant, aqData, location}) {
       {/* Air Quality with Meter */}
       <div className='flex items-center space-x-4 mt-2 pr-3'>
         <div className='flex items-center space-x-2'>
-        <div className={`bg-${getQualityColor(airQuality)} text-black font-bold text-[22px] px-3 py-1 rounded-lg`}>
+        <div className={`${getBackgroundColor(airQuality)} text-black font-bold text-[22px] px-3 py-1 rounded-lg`}>
           {airQuality}
         </div>
-        <span className={`text-${getQualityColor(airQuality)} text-[22px] font-medium`}>
-          {getQualityText(airQuality)}
+        <span className={`${getTextColor(airQuality)} text-[22px] font-medium`}>
+          {getText(airQuality)}
         </span>
         </div>
         
@@ -102,11 +108,11 @@ function AQI({variant, aqData, location}) {
       
       {/* Main Air Quality Display */}
       <div className='flex items-center space-x-3 mt-3'>
-        <div className={`bg-${getQualityColor(airQuality)} text-black font-bold text-[24px] px-3 py-1 rounded-lg`}>
+        <div className={`${getBackgroundColor(airQuality)} text-black font-bold text-[24px] px-3 py-1 rounded-lg`}>
           {airQuality}
         </div>
-        <span className={`text-${getQualityColor(airQuality)} text-[24px] font-medium`}>
-          {getQualityText(airQuality)}
+        <span className={`${getTextColor(airQuality)} text-[24px] font-medium`}>
+          {getText(airQuality)}
         </span>
       </div>
 

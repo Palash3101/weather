@@ -111,27 +111,18 @@ fetchWeeklyData();
       {
         windowWidth>=laptop_width?
         <div className='flex '>
-          <div className='flex flex-col'>
+          <div className='flex flex-col w-[400px]'>
             <CurrentWeather currentData = {currentData}/>
             <WeekForecast dailyData={dailyData}/>
           </div>
           <div className='flex flex-1 flex-col min-w-0'>
             <div className='flex'>
-              <Map loc_cords={location}/>
+              <Map loc_cords={location} setCoords={setLocation}/>
               <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay}/>
             </div>
             <AQI variant={1} aqData={aqData} location={location}/>
             <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
           </div>
-          {/* <div className="section-1">
-            
-            
-          </div>
-
-          <div className="section-2">
-            
-            
-          </div> */}
         </div>
       :
       
@@ -143,7 +134,7 @@ fetchWeeklyData();
             <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
             <AQI variant={2} aqData={aqData} location={location}/>
           </div>
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <div className='section-2'>
             <WeekForecast dailyData={dailyData}/>
             <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
@@ -161,7 +152,7 @@ fetchWeeklyData();
             <WeekForecast dailyData={dailyData}/>
             <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
           </div>
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
         </div>
         :
@@ -170,7 +161,7 @@ fetchWeeklyData();
           <AQI variant={1} aqData={aqData} location={location}/>
           <WeekForecast dailyData={dailyData}/>
           <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
         </div>
       }
