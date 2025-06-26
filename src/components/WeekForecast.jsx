@@ -46,7 +46,7 @@ function DayForecast({Day,Humidity, MinTemp, MaxTemp, sprite}) {
     <div className='grid grid-cols-[100px_40px_45px_1fr_1fr]  text-[19px] mt-5 gap-2 items-center'>
       <div className=' text-[21px]'>{Day}</div>
       <div className='flex -translate-x-2 items-center'>
-        <img src={raindrop} className='size-[33px]' />
+        <img alt="raindrop" src={raindrop} className='size-[33px]' />
         <span className='-translate-x-2'>{Humidity}</span>
       </div>
       

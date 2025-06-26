@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-
+import { useEffect, useState } from 'react'
 
 function CurrentWeather({currentData}) {
 
-  const Humidity = '/production/line/all/humidity.svg'
-  const Wind = '/production/line/all/wind.svg'
-  const UVIndex = '/production/line/all/uv-index.svg'
+  const Humidity = '/production/line/humidity.svg'
+  const Wind = '/production/line/wind.svg'
+  const UVIndex = '/production/line/uv-index.svg'
 
   const [weatherData, setWeatherData] = useState({
     temperature: '25°C',
@@ -51,17 +50,17 @@ function CurrentWeather({currentData}) {
       <div className='flex justify-between mr-10 ml-5 mt-3'>
 
         <div className='flex flex-col w-auto items-center'>
-          <img src={Humidity} className='size-[35px]' />
+          <img src={Humidity} alt="Humidity Icon" className='size-[35px]' />
           <div className='text-[18px]'>{weatherData.humidity}</div>
         </div>
 
         <div className='flex flex-col w-auto items-center'>
-          <img src={UVIndex} className='size-[35px]' />
+          <img src={UVIndex} alt="UV Icon" className='size-[35px]' />
           <div className='text-[18px]'>{weatherData.uvIndex}</div>
         </div>
 
         <div className='flex flex-col w-auto items-center'>
-          <img src={Wind} className='size-[35px]' />
+          <img src={Wind} alt="Wind Icon" className='size-[35px]' />
           <div className='text-[18px]'>{weatherData.windSpeed}</div>
         </div>
       </div>
