@@ -7,7 +7,7 @@ To set up this app locally,
    2. npm run dev
 4. If all goes well, an instance of the website will start at the default post of port: 5173
 
-PS - Please, start the repo if it was any help to you
+PS - Please, star the repo if it was any help to you
 
 CREDITS: 
   Weather Icons: https://github.com/basmilius/weather-icons
