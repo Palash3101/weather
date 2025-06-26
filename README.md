@@ -1,12 +1,13 @@
 # React + Vite
+To set up this app locally, 
+1. Fork the repository
+2. Then clone it from your newly created Fork
+3. Open the terminal from your main directory, on your local machine and run:
+   1. npm i
+   2. npm run dev
+4. If all goes well, an instance of the website will start at the default post of port: 5173
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PS - Please, star the repo if it was any help to you
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+CREDITS: 
+  Weather Icons: https://github.com/basmilius/weather-icons

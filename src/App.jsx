@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import CurrentWeather from "./components/CurrentWeather"
-import Header from "./components/header"
+import Header from "./components/Header"
 import HourlyForecast from "./components/HourlyForecast"
 import WeekForecast from "./components/WeekForecast"
 import Map from "./components/Map"
@@ -21,6 +21,7 @@ function App() {
   const [aqData, setAQData] = useState(null);
 
 
+  //weather API calls 
   useEffect(() => {
 
     const currentDayDataCall = `https://api.open-meteo.com/v1/forecast?latitude=${location[0]}&longitude=${location[1]}&hourly=temperature_2m,weather_code,precipitation_probability&current=surface_pressure,wind_gusts_10m,uv_index,wind_speed_10m,temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,is_day&daily=sunset,sunrise&timezone=auto&forecast_days=1`
@@ -83,7 +84,7 @@ fetchWeeklyData();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 
-
+  //resizer
   useEffect(() => {
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -104,34 +105,25 @@ fetchWeeklyData();
   
 
   return (
-  <div className=''>
+  <div className='transition-all duration-300'>
       <Header setLocation={setLocation}/>
       <hr className=' mx-auto border=[2px] border-(var(--dark_accent)) w-[97%]'/>
       
       {
         windowWidth>=laptop_width?
         <div className='flex '>
-          <div className='flex flex-col'>
+          <div className='flex flex-col w-[400px] '>
             <CurrentWeather currentData = {currentData}/>
             <WeekForecast dailyData={dailyData}/>
           </div>
           <div className='flex flex-1 flex-col min-w-0'>
             <div className='flex'>
-              <Map loc_cords={location}/>
-              <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay}/>
+              <Map loc_cords={location} setCoords={setLocation}/>
+              <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
             </div>
             <AQI variant={1} aqData={aqData} location={location}/>
             <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
           </div>
-          {/* <div className="section-1">
-            
-            
-          </div>
-
-          <div className="section-2">
-            
-            
-          </div> */}
         </div>
       :
       
@@ -143,7 +135,7 @@ fetchWeeklyData();
             <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
             <AQI variant={2} aqData={aqData} location={location}/>
           </div>
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <div className='section-2'>
             <WeekForecast dailyData={dailyData}/>
             <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
@@ -161,7 +153,7 @@ fetchWeeklyData();
             <WeekForecast dailyData={dailyData}/>
             <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
           </div>
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
         </div>
         :
@@ -170,7 +162,7 @@ fetchWeeklyData();
           <AQI variant={1} aqData={aqData} location={location}/>
           <WeekForecast dailyData={dailyData}/>
           <RiseNSet RiseNSetTime={riseNSetTime} isDay={isDay} />
-          <Map loc_cords={location}/>
+          <Map loc_cords={location} setCoords={setLocation}/>
           <HourlyForecast hourlyData={hourlyData} RiseNSetTime={riseNSetTime}/>
         </div>
       }

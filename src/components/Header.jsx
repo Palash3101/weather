@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import '../index.css'
-import { coordinates } from '@maptiler/sdk';
 
 function Header({setLocation}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +40,8 @@ function Header({setLocation}) {
   //API call
   useEffect(()=>{
     async function fetchLocationData(encodedString){
-      const key = 'pk.e872c18d8781e1845fc5c3bd96bf222f'
+      const key = import.meta.env.VITE_LOCATIONIQ_API_KEY;
+      
       const query = `https://api.locationiq.com/v1/autocomplete?key=${key}&q=${encodedString}&limit=5&dedupe=1&`
 
       try{
